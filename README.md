@@ -7,7 +7,9 @@ python -m pip install playwright
 python -m playwright install chromium
 
 Uso:
+
 python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-users 0
+
 
 <img width="840" height="353" alt="image" src="https://github.com/user-attachments/assets/13241359-b75c-4414-b147-708e9c5f3dc0" />
 
