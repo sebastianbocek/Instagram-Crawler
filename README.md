@@ -18,3 +18,7 @@ python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-user
 <img width="452" height="263" alt="image" src="https://github.com/user-attachments/assets/6f5a92c6-4d24-4666-9f97-f3a125d20bd1" />
 
 
+Block de Notas para BOT:
+
+Al apretar Control + L en una linea dentro del block de notas se abre una nueva pestaña con el contenido de la primer linea.
+
