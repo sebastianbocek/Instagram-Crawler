@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>By DIMITRI</title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>BY DIMITRI</h3>
+    <textarea id="notepad"></textarea>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textarea = document.getElementById("notepad");
+
+            textarea.addEventListener("keydown", function (event) {
+                let lines = textarea.value.split("\n");
+                let cursorPos = textarea.selectionStart;
+                let currentLineIndex = textarea.value.substr(0, cursorPos).split("\n").length - 1;
+
+                // Flecha abajo con bucle
+                if (event.key === "ArrowDown") {
+                    if (currentLineIndex >= lines.length - 1) {
+                        event.preventDefault();
+                        moveCursorToLine(1);
+                    }
+                }
+
+                // Abrir URL de la línea actual con Ctrl + L
+                if (event.ctrlKey && event.key.toLowerCase() === "l") {
+                    event.preventDefault();
+                    const url = lines[currentLineIndex].trim();
+                    if (url) {
+                        // Si la URL no tiene protocolo, le agregamos https:// para que no intente abrir ruta local
+                        let fullUrl = url;
+                        if (!url.match(/^https?:\/\//i)) {
+                            fullUrl = "https://" + url;
+                        }
+                        window.open(fullUrl, "_blank");
+                    }
+                }
+            });
+
+            function moveCursorToLine(lineNumber) {
+                let lines = textarea.value.split("\n");
+                let position = 0;
+
+                for (let i = 0; i < lineNumber - 1; i++) {
+                    position += lines[i].length + 1;
+                }
+
+                textarea.setSelectionRange(position, position);
+            }
+        });
+    </script>
+</body>
+</html>
