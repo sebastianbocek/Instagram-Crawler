@@ -11,6 +11,11 @@ Uso:
 python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-users 0
 
 
+Block de Notas para BOT:
+
+Al apretar Control + L en una linea dentro del block de notas se abre una nueva pestaña con el contenido de la primer linea.
+
+
 <img width="840" height="353" alt="image" src="https://github.com/user-attachments/assets/13241359-b75c-4414-b147-708e9c5f3dc0" />
 
 <img width="723" height="680" alt="image" src="https://github.com/user-attachments/assets/c508210d-85f0-4d4c-abd8-5535399a279c" />
@@ -18,7 +23,5 @@ python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-user
 <img width="452" height="263" alt="image" src="https://github.com/user-attachments/assets/6f5a92c6-4d24-4666-9f97-f3a125d20bd1" />
 
 
-Block de Notas para BOT:
 
-Al apretar Control + L en una linea dentro del block de notas se abre una nueva pestaña con el contenido de la primer linea.
 
