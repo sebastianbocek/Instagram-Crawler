@@ -12,7 +12,7 @@ Ideal para scraping, growth hacking y análisis de audiencias.
 ## ✨ Funcionalidades  
 
 - 🔍 **Instagram Hashtag Crawler** → Extrae usuarios que publican con un hashtag. 
-- 🔍 **Instagram Contact Finder** → Extrae enlaces y telefono de users.txt (perfiles de instagram)
+- 🔍 **Instagram Contact Finder** → Extrae enlaces y telefonos de users.txt (perfiles de instagram)
 - 🔍 **Instagram Followers Following** → Extrae seguidores y seguidos de un usuario.
 - 🌍 **Instagram Locations Crawler** → Extrae usuarios de una ubicación específica.  
 - 🎥 **Instagram Bulk Video Downloader** → Descarga videos masivamente desde `links.txt`. 
