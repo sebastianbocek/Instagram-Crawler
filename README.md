@@ -26,7 +26,7 @@ Instala las dependencias necesarias:
 python -m pip install playwright
 python -m playwright install chromium
 pip install yt-dlp
-
+```
 
 
 <img width="840" height="353" alt="image" src="https://github.com/user-attachments/assets/13241359-b75c-4414-b147-708e9c5f3dc0" />
