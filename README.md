@@ -4,16 +4,17 @@
 [![Playwright](https://img.shields.io/badge/Playwright-Automation-green)](https://playwright.dev/)  
 [![yt-dlp](https://img.shields.io/badge/yt--dlp-Video%20Downloader-orange)](https://github.com/yt-dlp/yt-dlp)  
 
-**Instagram Crawler** es una herramienta automatizada que permite **recopilar de manera masiva usuarios de Instagram** y **descargar contenido en bloque** (hashtags, ubicaciones, videos).  
+**Instagram Crawler** es una herramienta automatizada que permite **recopilar de manera masiva usuarios de Instagram** y **descargar contenido en bloque** (hashtags, ubicaciones, videos, seguidores y seguidos).  
 Ideal para scraping, growth hacking y análisis de audiencias.  
 
 ---
 
 ## ✨ Funcionalidades  
 
-- 🔍 **Instagram Hashtag Crawler** → Extrae usuarios que publican con un hashtag.  
+- 🔍 **Instagram Hashtag Crawler** → Extrae usuarios que publican con un hashtag. 
+- 🔍 **Instagram Followers Following** → Extrae seguidores y seguidos de un usuario.
 - 🌍 **Instagram Locations Crawler** → Extrae usuarios de una ubicación específica.  
-- 🎥 **Instagram Bulk Video Downloader** → Descarga videos masivamente desde `links.txt`.  
+- 🎥 **Instagram Bulk Video Downloader** → Descarga videos masivamente desde `links.txt`. 
 - 📝 **Block de Notas para BOT** → Atajo rápido (`Ctrl + L`) para abrir enlaces en el navegador.  
 
 ---
@@ -41,6 +42,12 @@ python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-user
 ```bash        
 python ig_locations.py --location-url "https://www.instagram.com/explore/locations/212999109/los-angeles-california/" --per-cycle 6 --delay-ms 300 --max-users 10
 ``` 
+🔹 Extraer seguidores y seguidos de un usuario
+
+```bash        
+python .\IGFollowersFollowing.py --user usuarioInstagram
+``` 
+
 🔹 Descargar videos de links.txt
 
 ```bash        
