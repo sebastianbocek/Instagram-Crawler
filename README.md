@@ -1,14 +1,23 @@
 # Instagram-Crawler
-Instagram Hashtag Crawler es una herramienta automatizada que permite recopilar de manera masiva los usuarios que publican en un hashtag específico
+Instagram Crawler es una herramienta automatizada que permite recopilar de manera masiva los usuarios que publican en instagram.
 
 Requisitos: 
 
 python -m pip install playwright
 python -m playwright install chromium
+pip install yt-dlp
+
+*Instagram Hashtag Crawler
+*Instagram Locations Crawler
+*Instagram Bulk Video Downloader (necesita links.txt)
+
 
 Uso:
 
 python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-users 0
+
+python ig_locations.py --location-url "https://www.instagram.com/explore/locations/212999109/los-angeles-california/" --per-cycle 6 --delay-ms 300 --max-users 10
+
 
 
 Block de Notas para BOT:
