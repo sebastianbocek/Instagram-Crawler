@@ -41,7 +41,7 @@ python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-user
 ```bash        
 python ig_locations.py --location-url "https://www.instagram.com/explore/locations/212999109/los-angeles-california/" --per-cycle 6 --delay-ms 300 --max-users 10
 ``` 
-🔹 Descargar videos en bloque
+🔹 Descargar videos de links.txt
 
 ```bash        
 python ig_downloader.py
