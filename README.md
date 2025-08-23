@@ -25,9 +25,22 @@ Instala las dependencias necesarias:
 ```bash
 python -m pip install playwright
 python -m playwright install chromium
-pip install yt-dlp
+pip install yt-dlp && winget install -e --id Gyan.FFmpeg
 ```
 
+🚀 Uso
+
+🔹 Extraer usuarios por hashtag
+
+python ig_hashtag_users.py --hashtag n8n --per-cycle 6 --delay-ms 300 --max-users 0
+
+🔹 Extraer usuarios por ubicación
+
+python ig_locations.py --location-url "https://www.instagram.com/explore/locations/212999109/los-angeles-california/" --per-cycle 6 --delay-ms 300 --max-users 10
+
+🔹 Descargar videos en bloque
+
+python ig_downloader.py
 
 <img width="840" height="353" alt="image" src="https://github.com/user-attachments/assets/13241359-b75c-4414-b147-708e9c5f3dc0" />
 
@@ -35,6 +48,8 @@ pip install yt-dlp
 
 <img width="452" height="263" alt="image" src="https://github.com/user-attachments/assets/6f5a92c6-4d24-4666-9f97-f3a125d20bd1" />
 
+<img width="616" height="256" alt="image" src="https://github.com/user-attachments/assets/dc275780-d898-46f3-90b9-1ae893c306d5" />
 
+<img width="1101" height="334" alt="image" src="https://github.com/user-attachments/assets/b79da8b0-90ea-41f8-869a-e5575376c1a9" />
 
 
