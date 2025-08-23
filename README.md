@@ -4,7 +4,7 @@
 [![Playwright](https://img.shields.io/badge/Playwright-Automation-green)](https://playwright.dev/)  
 [![yt-dlp](https://img.shields.io/badge/yt--dlp-Video%20Downloader-orange)](https://github.com/yt-dlp/yt-dlp)  
 
-**Instagram Crawler** es una herramienta automatizada que permite **recopilar de manera masiva usuarios de Instagram** y **descargar contenido en bloque** (hashtags, ubicaciones, videos, seguidores y seguidos).  
+**Instagram Crawler** es una herramienta automatizada que permite **recopilar de manera masiva usuarios de Instagram** y **descargar contenido en bloque** (hashtags, ubicaciones, videos, seguidores, seguidos, enlaces y telefono).  
 Ideal para scraping, growth hacking y análisis de audiencias.  
 
 ---
