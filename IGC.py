@@ -1,9 +1,8 @@
-# ig_contact_finder_fixed.py
 # Lee usernames desde users.txt y extrae links/bio/contacto de cada perfil de Instagram.
 # Corrige: ignora Threads, resuelve linkshim (l.instagram.com/?u=), abre el modal "… y N más".
 #
 # Uso:
-#   python ig_contact_finder_fixed.py --users-file users.txt --out ig_contacts.csv --jsonl ig_contacts.jsonl
+#   python IGC.py --users-file users.txt --out ig_contacts.csv --jsonl ig_contacts.jsonl
 #
 # Requisitos:
 #   pip install playwright
