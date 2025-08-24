@@ -1,5 +1,9 @@
 # ig_user_network_fixed.py
-# Captura FOLLOWERS y FOLLOWING de un usuario y SCROLLEA el modal hasta agotar la lista o llegar al tope.
+# Captura FOLLOWERS y FOLLOWING de un usuario, genera CSVs y además
+# crea:
+#   - not_following_back_{user}.csv  -> A quienes sigues y NO te siguen
+#   - fans_you_dont_follow_{user}.csv -> Quienes te siguen y vos NO sigues
+#
 # Uso:
 #   python ig_user_network_fixed.py --user "instagram" --max 0 --delay-ms 300
 #
@@ -24,7 +28,7 @@ FOLLOWERS_BTN_SEL  = 'a[href$="/followers/"]'
 FOLLOWING_BTN_SEL  = 'a[href$="/following/"]'
 DIALOG_SEL         = 'div[role="dialog"]'
 
-def rand(a,b): 
+def rand(a,b):
     return a + random.random()*(b-a)
 
 # ----------------- Helpers sesión / navegación -----------------
@@ -39,7 +43,6 @@ async def goto_profile(page, user: str):
     if "login" in page.url:
         await ensure_login(page)
         await page.goto(url, wait_until="domcontentloaded", timeout=OPEN_TIMEOUT)
-    # espera header/main del perfil
     try:
         await page.wait_for_selector('header, main', timeout=15000)
     except PWTimeout:
@@ -219,6 +222,16 @@ def write_graph_csv(path: Path, followers: List[str], following: List[str]):
         for u in following:
             w.writerow([u, "following", f"https://www.instagram.com/{u}/", ts])
 
+def write_simple_list_csv(path: Path, users: List[str]):
+    new_file = not path.exists()
+    with open(path, "a", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        if new_file:
+            w.writerow(["username","profile_url","ts"])
+        ts = int(time.time())
+        for u in users:
+            w.writerow([u, f"https://www.instagram.com/{u}/", ts])
+
 # ----------------- Flujo principal -----------------
 async def scrape_follow_list(page, user: str, which: str, max_items:int, delay_ms:int) -> List[str]:
     dlg = await open_list_dialog(page, which, user)
@@ -254,15 +267,37 @@ async def main(user: str, delay_ms:int=DELAY_MS, max_items:int=MAX_FETCH, user_d
         following = await scrape_follow_list(page, user, "following", max_items, delay_ms)
         print(f"✅ Following capturados: {len(following)}")
 
+        # Set para comparaciones O(1)
+        followers_set: Set[str] = set(followers)
+        following_set: Set[str] = set(following)
+
+        # 1) A quienes sigues y NO te siguen (not_following_back)
+        not_following_back = sorted(list(following_set - followers_set))
+
+        # 2) Quienes te siguen y vos NO sigues (fans_you_dont_follow)
+        fans_you_dont_follow = sorted(list(followers_set - following_set))
+
+        print(f"⚠️ No te siguen de vuelta: {len(not_following_back)}")
+        print(f"⭐ Te siguen y no los sigues: {len(fans_you_dont_follow)}")
+
         followers_path = Path(f"followers_{user}.csv")
         following_path = Path(f"following_{user}.csv")
         graph_path     = Path(f"follow_graph_{user}.csv")
+        not_back_path  = Path(f"not_following_back_{user}.csv")
+        fans_path      = Path(f"fans_you_dont_follow_{user}.csv")
 
         write_csv(followers_path, [(u,) for u in followers])
         write_csv(following_path, [(u,) for u in following])
         write_graph_csv(graph_path, followers, following)
+        write_simple_list_csv(not_back_path, not_following_back)
+        write_simple_list_csv(fans_path, fans_you_dont_follow)
 
-        print(f"💾 Guardados:\n - {followers_path}\n - {following_path}\n - {graph_path}")
+        print("💾 Guardados:")
+        print(f" - {followers_path}")
+        print(f" - {following_path}")
+        print(f" - {graph_path}")
+        print(f" - {not_back_path}   (Sigues → NO te siguen)")
+        print(f" - {fans_path}       (Te siguen → NO los sigues)")
 
         await ctx.close()
 
